@@ -58,17 +58,19 @@ const executeQuery = async (type: 'id' | 'title', { query, opts }: OmdbFetchPara
   }
 };
 
-export const fetchByTitle = createAsyncThunk('searchResults/fetchByTitleStatus', async (opts: OmdbFetchParaps, thunkAPI): Promise<
-  OmdbPayload | undefined
-> => {
-  return await executeQuery('title', opts, thunkAPI.dispatch);
-});
+export const fetchByTitle = createAsyncThunk(
+  'searchResults/fetchByTitleStatus',
+  async (opts: OmdbFetchParaps, thunkAPI): Promise<OmdbPayload | undefined> => {
+    return await executeQuery('title', opts, thunkAPI.dispatch);
+  }
+);
 
-export const fetchById = createAsyncThunk('searchResults/fetchByIdStatus', async (opts: OmdbFetchParaps, thunkAPI): Promise<
-  OmdbPayload | undefined
-> => {
-  return await executeQuery('id', opts, thunkAPI.dispatch);
-});
+export const fetchById = createAsyncThunk(
+  'searchResults/fetchByIdStatus',
+  async (opts: OmdbFetchParaps, thunkAPI): Promise<OmdbPayload | undefined> => {
+    return await executeQuery('id', opts, thunkAPI.dispatch);
+  }
+);
 
 //should be replaced with generic local storage api
 //ToDo Cache invalidation

@@ -83,4 +83,4 @@ Stack:
 [tinycolor2](https://github.com/bgrins/TinyColor#readme) - color manipulation
 [typescript](https://www.typescriptlang.org/)
 [create-react-app](https://github.com/facebook/create-react-app) - It's good to know CRA limitations, most of them can be overcame without ejecting by use of tools as craco but some of them not. For now I feel quite comfortable with CRA.
-
+[styled-components](https://styled-components.com/) - embrace the composition
