@@ -32,8 +32,6 @@ const Row = <ItemType, ComponentType extends BaseRowItem<ItemType>>({
     [rowKey, onClick]
   );
 
-  //console.log('row', item, rowKey);
-
   return (
     <RowWrapper onClick={localClickHandler}>
       <ItemComponent {...itemComponentProps} />
