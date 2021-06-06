@@ -1,0 +1,42 @@
+{
+	"main": {
+		"search": {
+			"label": "Search through site content",
+			"genericError": "Opps, issue"
+		},
+		"movieList": {
+			"results": "Search results"
+		}
+	},
+	"movieCard": {
+		"labels": {
+			"title": "Title",
+			"plot": "Plot",
+			"actors": "Actors",
+			"awards": "Awards",
+			"boxOffice": "BoxOffice",
+			"country": "Country",
+			"dvd": "DVD",
+			"director": "Director",
+			"genre": "Genre",
+			"language": "Language",
+			"metascore": "Metascore",
+			"production": "Production",
+			"rated": "Rated",
+			"released": "Released",
+			"response": "Response",
+			"runtime": "Runtime",
+			"type": "Type",
+			"website": "Website",
+			"imdbRating": "Rating",
+			"imdbVotes": "Votes",
+			"writer": "Writer",
+			"year": "Year"
+		}
+	},
+	"common": {
+		"remove": "Remove",
+		"showMore": "Show More",
+		"showLess": "Show Less"
+	}
+}

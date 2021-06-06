@@ -44,3 +44,43 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+Philosophy:
+I've treated this project as potential boilerplate for future development, as styling reassembles early 2000', fundaments are solid.
+Maintainability and extendibility were main principles taken into account while proposing stack and component architecture.
+Heavy use of typescript, heavy composition, custom base components were main architectural tools used to achieve the goal.
+Linter rules are very strict by using additional sonar ruleset for quality.
+Stack is quite bloated with tools considering size of the project, but as stated, I was aiming to create a fully fledged boilerplate rather than simply deliver the task.
+No component framework used apart from material icons. 
+No grid.
+
+Features:
+- Proto of custom theming with use of styled components
+- Behavior driven by flags
+- Local caching of previous searches for api utilization optimization
+- Local caching of current results state (disabled by default)
+- Custom base components:
+	- Button
+	- Icon (Material wrapper)
+	- Input
+	- List
+	- Spinner (Material wrapper)
+	- Label
+  
+For setup flags check Main Component
+
+Missing:
+- cache invalidation
+- animations
+- unit tests
+
+Stack:
+[redux-toolkit](https://redux-toolkit.js.org/) - Totally unnecessary, just to show off
+[i18-next](https://react.i18next.com/) - because keeping your labels in one place is really good idea and adding an ability to easily translate them in the feature makes this one an easy choice
+[material-icons](https://material-ui.com/components/material-icons/) - I needed Icons, easy replaceable
+[lodash](https://lodash.com/) - always helpful
+[iterare](https://github.com/felixfbecker/iterare#readme) - because Sets > Arrays
+[tinycolor2](https://github.com/bgrins/TinyColor#readme) - color manipulation
+[typescript](https://www.typescriptlang.org/)
+[create-react-app](https://github.com/facebook/create-react-app) - It's good to know CRA limitations, most of them can be overcame without ejecting by use of tools as craco but some of them not. For now I feel quite comfortable with CRA.
+

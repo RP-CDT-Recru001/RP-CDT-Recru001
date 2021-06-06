@@ -1,0 +1,20 @@
+{
+  "plugins": ["@typescript-eslint", "prettier", "sonarjs"],
+  "parser": "@typescript-eslint/parser",
+  "extends":  [
+    "react-app",
+    "plugin:@typescript-eslint/recommended",
+	  "plugin:prettier/recommended",
+	  "plugin:sonarjs/recommended"
+  ],
+  "parserOptions":  {
+    "ecmaVersion":  2018,
+    "sourceType":  "module"
+  },
+  "rules": {
+    "prettier/prettier": "warn",
+	  "sonarjs/cognitive-complexity": ["warn", 25],
+    "sonarjs/no-duplicate-string": ["warn", 5],
+    "sonarjs/no-small-switch": ["warn", 3]
+  }
+}
