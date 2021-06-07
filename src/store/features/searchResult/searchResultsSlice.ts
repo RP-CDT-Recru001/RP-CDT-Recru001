@@ -16,6 +16,10 @@ interface SearchResultsInitialState {
     inProgress: boolean;
   };
   data: Set<string>;
+  cacheState: {
+    dataLoaded: boolean;
+    stateLoaded: boolean;
+  };
 }
 
 interface OmdbPayload {
@@ -35,7 +39,11 @@ const initialState: SearchResultsInitialState = {
     },
     inProgress: false
   },
-  data: new Set()
+  data: new Set(),
+  cacheState: {
+    dataLoaded: false,
+    stateLoaded: false
+  }
 };
 
 const emptyError: StateError = {
@@ -117,7 +125,7 @@ const searchResultsSlice = createSlice({
       storeSearches(action.payload.opts?.omdbCaching, { state: { cache: action.payload.opts?.omdbStateCaching, stateData: state.data } });
     },
     loadStoredData: (state, action: PayloadAction<OmdbFlags>) => {
-      if (action.payload.omdbCaching) {
+      if (action.payload.omdbCaching && !state.cacheState.dataLoaded) {
         const storagedLoadedMovies =
           !!localStorage.getItem('loadedMovies') &&
           (new Map(JSON.parse(localStorage.getItem('loadedMovies') as string)) as typeof loadedMovies);
@@ -134,13 +142,18 @@ const searchResultsSlice = createSlice({
           storagedLoadedMovies.forEach((movie) => {
             !loadedMovies.has(movie.imdbID) && loadedMovies.set(movie.imdbID, movie);
           });
+
+        state.cacheState.dataLoaded = true;
       }
-      if (action.payload.omdbStateCaching) {
+
+      if (action.payload.omdbStateCaching && !state.cacheState.stateLoaded) {
         const storagedSateData =
           !!localStorage.getItem('stateData') && new Set<string>(JSON.parse(localStorage.getItem('stateData') as string));
 
         if (storagedSateData) state.data = iterate(storagedSateData).concat(state.data).toSet();
+        state.cacheState.stateLoaded = true;
       }
+
       debugMode && console.log('loaded', loadedMovies, performedSearches);
     }
   },
